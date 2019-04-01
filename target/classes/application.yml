@@ -1,0 +1,41 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8088
+  servlet:
+    context-path: /redis-demo
+
+# mysql
+spring:
+  http:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  redis:
+    #����
+    database: 0
+    host: localhost
+    port: 6379
+    password:      # ���루Ĭ��Ϊ�գ�(��Ҫ��������)
+    timeout: 6000  # ���ӳ�ʱʱ�������룩
+    pool:
+      max-active: 1000  # ���ӳ������������ʹ�ø�ֵ��ʾû�����ƣ�
+      max-wait: -1      # ���ӳ���������ȴ�ʱ�䣨ʹ�ø�ֵ��ʾû�����ƣ�
+      max-idle: 10      # ���ӳ��е�����������
+      min-idle: 5       # ���ӳ��е���С��������
+  cache:
+    type: none
+
+huangtuL:
+  redis:
+    open: false  # �Ƿ���redis����  true����   false�ر�
+
+logging:
+  level: debug
+  level.com.example: debug
+  path: logs/
+  file: huangtuL.log
